@@ -7,6 +7,16 @@ function App() {
       <h1>Drinkly</h1>
       <p>Temukan minuman favoritmu di sini.</p>
 
+      <section>
+        <h2>Kategori Minuman</h2>
+        <ul>
+          <li>Kopi</li>
+          <li>Teh</li>
+          <li>Jus Buah</li>
+          <li>Minuman Segar</li>
+        </ul>
+      </section>
+
       <WebsiteDrinkly
         nama="Website Drinkly"
         peran="Website Minuman"
