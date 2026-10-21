@@ -1,5 +1,6 @@
+
 :root {
-  font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+  font-family: "Segoe UI", Roboto, system-ui, sans-serif;
   color: #24382d;
   background: #f8f7f1;
   font-synthesis: none;
@@ -22,13 +23,17 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(224, 235, 207, 0.72), transparent 45%),
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(224, 235, 207, 0.72),
+      transparent 45%
+    ),
     #f8f7f1;
 }
 
 #root {
-  min-height: 100svh;
-  padding: 72px 28px 88px;
+  min-height: 100vh;
+  padding: 56px 20px 72px;
 }
 
 main {
@@ -37,68 +42,39 @@ main {
   text-align: center;
 }
 
+header {
+  margin-bottom: 32px;
+}
+
 h1 {
   margin: 0;
   color: var(--green-dark);
-  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  font-size: clamp(3rem, 9vw, 6rem);
   font-weight: 800;
-  letter-spacing: -0.085em;
-  line-height: 0.98;
+  letter-spacing: -0.07em;
+  line-height: 1.05;
 }
 
-main > p {
-  margin: 20px auto 0;
+header p {
+  margin: 16px auto 0;
   color: var(--muted);
   font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 1.7;
 }
 
-main > p::before {
-  display: block;
-  width: 42px;
-  height: 3px;
-  margin: 0 auto 18px;
-  border-radius: 99px;
-  background: #d39152;
-  content: '';
-}
-
 main > section {
   position: relative;
-  display: flex;
-  min-height: 224px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
   overflow: hidden;
-  padding: 30px;
-  border: 1px solid rgba(37, 92, 66, 0.09);
+  margin-top: 20px;
+  padding: 28px;
+  border: 1px solid rgba(37, 92, 66, 0.1);
   border-radius: 24px;
   background: var(--paper);
   box-shadow: 0 14px 36px rgba(35, 58, 43, 0.07);
   text-align: left;
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-main > section:first-of-type {
-  margin-top: 54px;
-}
-
-main > section + section {
-  margin-top: 18px;
-}
-
-main > section::before {
-  position: absolute;
-  top: -48px;
-  right: -26px;
-  width: 180px;
-  height: 180px;
-  border: 1px solid rgba(255, 255, 255, 0.58);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 0 0 18px rgba(255, 255, 255, 0.1), 0 0 0 38px rgba(255, 255, 255, 0.08);
-  content: '';
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 main > section:nth-of-type(1) {
@@ -119,43 +95,61 @@ main > section:hover {
 }
 
 h2 {
-  position: relative;
   margin: 0 0 14px;
   color: var(--green-dark);
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
   font-weight: 700;
   letter-spacing: -0.04em;
 }
 
 main > section p {
-  position: relative;
   color: #526459;
   font-size: 0.98rem;
-  line-height: 1.65;
+  line-height: 1.7;
+}
+
+main > section ul {
+  margin: 0;
+  padding-left: 22px;
+  color: #354d3d;
+  line-height: 1.9;
+}
+
+main > section li {
+  padding-left: 4px;
 }
 
 @media (min-width: 720px) {
   #root {
-    padding-top: 100px;
+    padding: 80px 28px;
   }
 
   main {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 18px;
+    gap: 20px;
   }
 
-  h1,
-  main > p {
+  header {
     grid-column: 1 / -1;
+    margin-bottom: 20px;
   }
 
-  main > section:first-of-type {
-    margin-top: 58px;
+  main > section {
+    min-width: 0;
+    margin-top: 0;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 40px 16px 56px;
   }
 
-  main > section + section {
-    margin-top: 58px;
+  main > section {
+    padding: 22px;
+    border-radius: 18px;
   }
 }
 
@@ -165,5 +159,7 @@ main > section p {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
