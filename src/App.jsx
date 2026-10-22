@@ -1,7 +1,32 @@
 
+import { useState } from "react";
 import WebsiteDrinkly from "./components/WebsiteDrinkly.jsx";
 
 function App() {
+  const [kategoriAktif, setKategoriAktif] = useState("Semua");
+
+  const minuman = [
+    { nama: "Kopi", kategori: "Kopi" },
+    { nama: "Teh", kategori: "Teh" },
+    { nama: "Jus Buah", kategori: "Jus Buah" },
+    { nama: "Minuman Segar", kategori: "Minuman Segar" },
+  ];
+
+  const kategori = [
+    "Semua",
+    "Kopi",
+    "Teh",
+    "Jus Buah",
+    "Minuman Segar",
+  ];
+
+  const minumanTampil =
+    kategoriAktif === "Semua"
+      ? minuman
+      : minuman.filter(
+          (item) => item.kategori === kategoriAktif
+        );
+
   return (
     <main>
       <header>
@@ -10,12 +35,31 @@ function App() {
       </header>
 
       <section>
-        <h2>Kategori Minuman</h2>
+        <h2>Filter Kategori Minuman</h2>
+
+        {kategori.map((item) => (
+          <button
+            key={item}
+            onClick={() => setKategoriAktif(item)}
+            style={{
+              margin: "4px",
+              padding: "8px 12px",
+              cursor: "pointer",
+              backgroundColor:
+                kategoriAktif === item ? "#287a45" : "#eeeeee",
+              color: kategoriAktif === item ? "white" : "#222222",
+              border: "none",
+              borderRadius: "6px",
+            }}
+          >
+            {item}
+          </button>
+        ))}
+
         <ul>
-          <li>Kopi</li>
-          <li>Teh</li>
-          <li>Jus Buah</li>
-          <li>Minuman Segar</li>
+          {minumanTampil.map((item) => (
+            <li key={item.nama}>{item.nama}</li>
+          ))}
         </ul>
       </section>
 
