@@ -54,7 +54,7 @@ Ketika pengguna memilih tombol kategori, daftar minuman akan menyesuaikan katego
 
 ## Screenshot Aplikasi
 
-Tambahkan screenshot tampilan aplikasi Website Drinkly yang sudah dijalankan pada bagian ini.
+![Screenshot Website Drinkly](screenshot-drinkly.png)
 
 ## Menjalankan Proyek
 
